@@ -9,7 +9,7 @@ export default class Login extends Component {
   }
 
 
-  
+
     handleSubmit = (event) => {
     // stop page from refreshing
     event.preventDefault();
@@ -26,9 +26,9 @@ export default class Login extends Component {
 
   render() {
     return (
-    <form>
-        <input type='text' name='username' placeholder='Choose Username' value={this.state.userName} onChange={this.handleChange}/>
-        <input type='password' name='password' placeholder='Choose Password' value={this.state.password} onChange={this.handleChange}/>
+    <form onSubmit={this.handleSubmit}>
+        <input type='text' name='username' placeholder='Username' value={this.state.userName} onChange={this.handleChange}/>
+        <input type='password' name='password' placeholder='Password' value={this.state.password} onChange={this.handleChange}/>
         <input type='submit' value='Submit'/>
     </form>
     );

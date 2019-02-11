@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import './App.css';
 import Login from './Login';
+import MainContainer from './MainContainer'
 
 class App extends Component {
 
@@ -18,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Login login={this.login}/>
+        {this.state.logged ? <MainContainer username={this.state.username}/> : <Login login={this.login}/>}
       </div>
     );
   }
