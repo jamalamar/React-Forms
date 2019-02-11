@@ -1,7 +1,10 @@
+
 import React, { Component } from 'react';
 import './App.css';
 import Login from './Login';
 import MainContainer from './MainContainer'
+import DogForm from './MainContainer/DogForm.js'
+import PuppyList from './MainContainer/PuppyList.js'
 
 class App extends Component {
 
