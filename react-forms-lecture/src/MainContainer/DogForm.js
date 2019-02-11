@@ -1,32 +1,39 @@
 import React, { Component } from 'react';
 
-
-
 export default class DogForm extends Component {
 
 	state = {
-		dogs: [
-			{	
-				name: '',
-				age: 0,
-				breed: ''
-			},
-		]
+		name: '',
+		age: '',
+		breed: ''
 	}
 
 	handleSubmit = (event) => {
-    // stop page from refreshing
-    event.preventDefault();
-    this.props.login();
+	
+		let dog = {
+			name: this.state.name, 
+			age: this.state.age, 
+			breed: this.state.breed
+		}
+		event.preventDefault();
+		
+		this.props.addDog(dog)
+	}
 
-    }
+	handleChange = (event) => {
+		this.setState({
+        [event.currentTarget.name]: event.currentTarget.value
+      })
+	}
+
 
   render(){
     return (
     <form onSubmit={this.handleSubmit}>
-      <input type='text' name='name' placeholder='Name' value={this.state.dogs[0].name}/>
-      <input type='number' name='age' placeholder='Age' value={this.state.dogs[0].age}/>
-      <input type='text' name='breed' placeholder='Breed' value={this.state.dogs[0].breed}/>
+      <input type='text' name='name' placeholder='Name' value={this.state.name} onChange={this.handleChange}/>
+      <input type='text' name='age' placeholder='Age' value={this.state.age} onChange={this.handleChange}/>
+      <input type='text' name='breed' placeholder='Breed'value={this.state.breed} onChange={this.handleChange}/>
+       <input type='submit' value='Submit'/>
     </form>
       )
   }
